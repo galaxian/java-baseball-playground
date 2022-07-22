@@ -12,6 +12,7 @@ public class ProcessBaseball {
 
         String ballNumber = input();
 
+        resultView(ballNumber, correctBall);
     }
 
     public List<Integer> createBall() {
@@ -56,4 +57,24 @@ public class ProcessBaseball {
         return 0;
     }
 
+    public String result(String ballNumber, List<Integer> correctBall) {
+        int strikeCnt = checkStrike(ballNumber, correctBall);
+        int ballCnt = checkBall(ballNumber, correctBall);
+
+        if (strikeCnt != 0 && ballCnt != 0) {
+            return ballCnt + "볼 " + strikeCnt + "스트라이크";
+        }
+        if (ballCnt != 0) {
+            return ballCnt + "볼";
+        }
+        if (strikeCnt != 0) {
+            return strikeCnt + "스트라이크";
+        }
+        return "낫싱";
+
+    }
+
+    public void resultView(String ballNumber, List<Integer> correctBall) {
+        System.out.println(result(ballNumber, correctBall));
+    }
 }
