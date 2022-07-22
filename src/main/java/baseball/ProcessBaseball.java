@@ -54,7 +54,7 @@ public class ProcessBaseball {
         return ballCnt;
     }
 
-    private int cntBall(char ballNumber, List<Integer> correctBall) {
+    public int cntBall(char ballNumber, List<Integer> correctBall) {
         if (correctBall.contains(Integer.parseInt(String.valueOf(ballNumber)))) {
             return 1;
         }
