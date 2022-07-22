@@ -4,15 +4,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProcessBaseball {
-    public void process() {
+    public boolean process() {
         List<Integer> correctBall = createBall();
+        boolean play = true;
 
-        InputView inputView = new InputView();
-        inputView.input();
+        while (play) {
+            InputView inputView = new InputView();
+            inputView.input();
 
-        String ballNumber = input();
+            String ballNumber = input();
 
-        resultView(ballNumber, correctBall);
+            play =  resultView(ballNumber, correctBall);
+        }
+        return selectRestart();
     }
 
     public List<Integer> createBall() {
@@ -74,7 +78,23 @@ public class ProcessBaseball {
 
     }
 
-    public void resultView(String ballNumber, List<Integer> correctBall) {
+    public boolean resultView(String ballNumber, List<Integer> correctBall) {
         System.out.println(result(ballNumber, correctBall));
+        if (result(ballNumber, correctBall).equals("3스트라이크")) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean selectRestart() {
+        System.out.println("정답을 맞추셨습니다. 다시 진행하려면 1번, 중단하시려면 2번을 입력하세요");
+        Scanner sc = new Scanner(System.in);
+        if (sc.nextLine().equals("1")) {
+            return true;
+        }
+        if (sc.nextLine().equals("2")) {
+            return false;
+        }
+        return false;
     }
 }
