@@ -25,4 +25,13 @@ public class ValidationTest {
         assertThat(validation.duplicate(Arrays.asList(1, 2, 3))).isFalse();
         assertThat(validation.duplicate(Arrays.asList(9, 9, 9))).isTrue();
     }
+
+    @Test
+    @DisplayName("3자리 숫자인지 테스트")
+    void size() {
+        Validation validation = new Validation();
+        assertThat(validation.validSize(Arrays.asList(1, 2, 3))).isTrue();
+        assertThat(validation.validSize(Arrays.asList(1, 2, 3, 4))).isFalse();
+        assertThat(validation.validSize(Arrays.asList(1, 9))).isFalse();
+    }
 }
