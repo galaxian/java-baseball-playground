@@ -31,5 +31,15 @@ public class Balls {
         return BallStatus.NOTHING;
     }
 
+    public JudgeResult play(List<Integer> playerBalls) {
+        JudgeResult result = new JudgeResult();
+        Balls userBalls = new Balls(playerBalls);
+        for (Ball ball : balls) {
+            BallStatus status = userBalls.play(ball);
+            result.report(status);
+        }
+        return result;
+    }
+
 
 }
