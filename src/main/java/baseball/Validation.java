@@ -11,4 +11,8 @@ public class Validation {
     public boolean duplicate(List<Integer> asList) {
         return new HashSet<>(asList).size() != 3;
     }
+
+    public boolean validSize(List<Integer> numbers) {
+        return numbers.size() == 3;
+    }
 }
