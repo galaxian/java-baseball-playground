@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Ball {
     private final int index;
-    private final int number;
+    private final BallNumber number;
 
     public Ball(int index, int number) {
         this.index = index;
-        this.number = number;
+        this.number = new BallNumber(number);
     }
 
     public BallStatus play(Ball userBall) {
@@ -21,8 +21,8 @@ public class Ball {
         return BallStatus.NOTHING;
     }
 
-    private boolean matchNumber(int number) {
-        return this.number == number;
+    private boolean matchNumber(BallNumber number) {
+        return this.number.equals(number);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Ball {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ball ball = (Ball) o;
-        return index == ball.index && number == ball.number;
+        return index == ball.index && number.equals(ball.number);
     }
 
     @Override
