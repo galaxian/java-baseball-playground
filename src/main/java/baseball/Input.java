@@ -16,4 +16,9 @@ public class Input {
         }
         return userBalls;
     }
+
+    public static String inputSelectRetry() {
+        Scanner outputScanner = new Scanner(System.in);
+        return outputScanner.nextLine();
+    }
 }
