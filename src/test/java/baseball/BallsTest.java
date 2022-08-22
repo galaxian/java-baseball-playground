@@ -59,5 +59,6 @@ public class BallsTest {
         JudgeResult result = computer.play(Arrays.asList(1, 2, 3));
         assertThat(result.getStrike()).isEqualTo(3);
         assertThat(result.getBall()).isEqualTo(0);
+        assertThat(result.isGameEnd()).isTrue();
     }
 }
